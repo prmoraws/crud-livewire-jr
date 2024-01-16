@@ -21,4 +21,9 @@ class Membro extends Model
         'foto',
         'observacao'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('membros', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
             $table->string('nome');
             $table->string('celular');
             $table->string('idade');
@@ -24,6 +25,7 @@ return new class extends Migration
             $table->string('foto');
             $table->string('observacao');
             $table->timestamps();
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 
