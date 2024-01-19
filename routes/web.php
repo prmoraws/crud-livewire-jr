@@ -1,9 +1,11 @@
 <?php
 
+use App\Livewire\CreateMembros;
 use App\Livewire\ShowMembros;
 use Illuminate\Support\Facades\Route;
 
-Route::get('membros', ShowMembros::class);
+Route::get('membros', ShowMembros::class)->name('membros');
+Route::get('create', CreateMembros::class);
 
 Route::get('/', function () {
     return view('welcome');
