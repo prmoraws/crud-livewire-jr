@@ -18,7 +18,7 @@
                 </x-slot>
                 <x-slot name="body">
                     @forelse ($membros as $key => $membro)
-                        <x-table.row @class($membro->id % 2 == 0 ? 'bg-slate-200' : 'bg-white')>
+                        <x-table.row @class('odd:bg-white even:bg-slate-50')>
                             <x-table.cell>{{ $membro->nome }}</x-table.cell>
                             <x-table.cell> {{ $membro->celular }}</x-table.cell>
                             <x-table.cell>

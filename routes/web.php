@@ -1,11 +1,13 @@
 <?php
 
 use App\Livewire\CreateMembros;
+use App\Livewire\Foto;
 use App\Livewire\ShowMembros;
 use Illuminate\Support\Facades\Route;
 
-Route::get('membros', ShowMembros::class)->name('membros');
-Route::get('create', CreateMembros::class);
+Route::get('membros', ShowMembros::class)->name('membros')->middleware('auth');
+Route::get('create', CreateMembros::class)->middleware('auth');
+Route::get('foto', Foto::class)->name('foto')->middleware('auth');
 
 Route::get('/', function () {
     return view('welcome');

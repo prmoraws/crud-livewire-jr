@@ -2,10 +2,14 @@
 
 namespace App\Livewire;
 
+use App\Models\Membro;
 use Livewire\Component;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class CreateMembros extends Component
 {
+    public $nome, $endereco, $bairro, $celular, $idade, $group, $cond, $observacao;
 
     public $groups = [
         'Evangelização',
@@ -34,6 +38,24 @@ class CreateMembros extends Component
         'Afastado'
     ];
 
+    public function create()
+    {
+        Membro::create([
+            'user_id' =>  Auth::user()->id,
+            'nome' => $this->nome,
+            'celular' => $this->celular,
+            'idade' => $this->idade,
+            'endereco' => $this->endereco,
+            'bairro' => $this->bairro,
+            'condicao' => $this->cond,
+            'grupo' => $this->group,
+            'observacao' => $this->observacao
+        ]);
+
+        session()->put('nome', $this->nome);
+
+        return redirect('foto');
+    }
 
 
 
