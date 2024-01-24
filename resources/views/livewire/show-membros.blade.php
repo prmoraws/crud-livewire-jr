@@ -22,7 +22,7 @@
                             <x-table.cell>{{ $membro->nome }}</x-table.cell>
                             <x-table.cell> {{ $membro->celular }}</x-table.cell>
                             <x-table.cell>
-                                <a href="#"
+                                <a href="{{ route('update', 'id='.$membro->id) }}"
                                     class="inline-flex items-center justify-center w-8 h-8 mr-2 text-pink-100 transition-colors duration-150 bg-blue-700 rounded-full focus:shadow-outline hover:bg-blue-800">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                                         strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">

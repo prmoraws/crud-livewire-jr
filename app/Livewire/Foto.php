@@ -18,7 +18,7 @@ class Foto extends Component
     {
 
         $this->validate([
-            'foto' => 'required|image|max:1024'
+            'foto' => 'required|image|max:5120'
         ]);
 
         //cutomizar um nome para salvar o arquivo de foto
