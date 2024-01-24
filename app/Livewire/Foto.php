@@ -14,6 +14,7 @@ class Foto extends Component
 
     public $foto;
     public $nome;
+    public $foto_src = 'storage/profile-photos/no-image.png';
     public function save()
     {
 
@@ -23,24 +24,27 @@ class Foto extends Component
 
         //cutomizar um nome para salvar o arquivo de foto
         if (session('nome')) {
-           $nome = session('nome');
-
+            $nome = session('nome');
         }
         //constroi o nome.
         $nameFile = Str::slug(session('nome') ?? $this->nome) . '.' . $this->foto->getClientOriginalExtension();
 
         if ($phath = $this->foto->storeAs('membros',  $nameFile)) {
             //coloca a foto, se vier do select ou da sessão.
-           Membro::where('nome', $this->nome ?? $nome)->update([
-            'foto' => $phath
-           ]);
+            Membro::where('nome', $this->nome ?? $nome)->update([
+                'foto' => $phath
+            ]);
 
-           return redirect('membros')->with('status', 'Foto salva');
-
+            return redirect('membros')->with('status', 'Foto salva');
         }
     }
     public function render()
     {
+        if (session('nome')) {
+            $nome = session('nome');
+            $this->foto_src = Membro::where('nome', $nome)->select('foto')->first()->foto;
+        }
+
         return view('livewire.foto', [
             'membros' => Membro::all()
         ]);

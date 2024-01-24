@@ -40,7 +40,7 @@
             </div>
             <!-- Current Profile Photo -->
             <div class="mt-4" x-show="! photoPreview">
-                <img src="{{ url('storage/profile-photos/no-image.png') }}" class="rounded-full h-40 w-40 object-cover mx-auto">
+                <img src="{{ url('storage/' . $foto_src) }}" class="rounded-full h-40 w-40 object-cover mx-auto">
             </div>
             <!-- New Profile Photo Preview -->
             <div class="mt-4 object-center" x-show="photoPreview" style="display: none;">
@@ -49,7 +49,8 @@
                 </span>
             </div>
 
-            <x-secondary-button class="w-full mt-4 justify-center" type="button" x-on:click.prevent="$refs.foto.click()">
+            <x-secondary-button class="w-full mt-4 justify-center" type="button"
+                x-on:click.prevent="$refs.foto.click()">
                 {{ __('Carregar Foto') }}
             </x-secondary-button>
             <x-input-error for="foto" class="mt-2" />

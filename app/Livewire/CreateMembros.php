@@ -23,7 +23,8 @@ class CreateMembros extends Component
         'Terapia do Amor',
         'Universal Socioeducativo',
         'Vício Tem Cura',
-        'Depressão Tem Cura'
+        'Depressão Tem Cura',
+        'Não está em um grupo'
     ];
     public $conds = [
         'Obreiro',
