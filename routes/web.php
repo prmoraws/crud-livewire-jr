@@ -5,7 +5,7 @@ use App\Livewire\{Foto, ShowMembros, Update};
 use Illuminate\Support\Facades\Route;
 
 Route::get('membros', ShowMembros::class)->name('membros')->middleware('auth');
-Route::get('create', CreateMembros::class)->middleware('auth');
+Route::get('create', CreateMembros::class)->name('create')->middleware('auth');
 Route::get('foto', Foto::class)->name('foto')->middleware('auth');
 Route::get('update', Update::class)->name('update')->middleware('auth');
 
