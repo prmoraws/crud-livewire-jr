@@ -16,9 +16,11 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->string('nome');
             $table->string('celular');
-            $table->string('idade');
+            $table->string('nascimento');
+            $table->string('batismo');
             $table->string('endereco');
-            $table->string('email');
+            $table->string('e_civil');
+            $table->string('profissao');
             $table->string('bairro');
             $table->string('condicao');
             $table->string('grupo');

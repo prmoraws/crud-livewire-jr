@@ -7,11 +7,22 @@ use Livewire\Component;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 
 class Update extends Component
 {
-    public $nome, $endereco, $bairro, $celular, $idade, $group, $cond, $observacao, $foto, $membro, $id;
+    public $nome, $endereco, $bairro, $celular, $e_civil, $nascimento, $batismo, $profissao, $group, $cond, $observacao, $foto, $membro, $id;
 
+    public function delete()
+    {
+
+        Storage::disk('public')->delete($this->foto);
+
+        DB::table('membros')
+            ->where('id', $this->id)
+            ->delete();
+        return redirect()->route('membros');
+    }
 
     public $groups = [
         'Evangelização',
@@ -49,7 +60,10 @@ class Update extends Component
         $this->endereco = $membro->endereco;
         $this->bairro = $membro->bairro;
         $this->celular = $membro->celular;
-        $this->idade = $membro->idade;
+        $this->e_civil = $membro->e_civil;
+        $this->nascimento = $membro->nascimento;
+        $this->batismo = $membro->batismo;
+        $this->profissao = $membro->profissao;
         $this->group = $membro->grupo;
         $this->cond = $membro->condicao;
         $this->observacao = $membro->observacao;
@@ -62,18 +76,21 @@ class Update extends Component
     {
 
         DB::table('membros')
-        ->where('id', $this->id)
-        ->update([
-            'user_id' =>  Auth::user()->id,
-            'nome' => $this->nome,
-            'celular' => $this->celular,
-            'idade' => $this->idade,
-            'endereco' => $this->endereco,
-            'bairro' => $this->bairro,
-            'condicao' => $this->cond,
-            'grupo' => $this->group,
-            'observacao' => $this->observacao
-        ]);
+            ->where('id', $this->id)
+            ->update([
+                'user_id' =>  Auth::user()->id,
+                'nome' => $this->nome,
+                'celular' => $this->celular,
+                'nascimento' => $this->nascimento,
+                'batismo' => $this->batismo,
+                'e_civil' => $this->e_civil,
+                'profissao' => $this->profissao,
+                'endereco' => $this->endereco,
+                'bairro' => $this->bairro,
+                'condicao' => $this->cond,
+                'grupo' => $this->group,
+                'observacao' => $this->observacao
+            ]);
 
         session()->put('nome', $this->nome);
 

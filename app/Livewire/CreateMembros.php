@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 
 class CreateMembros extends Component
 {
-    public $nome, $endereco, $bairro, $celular, $idade, $group, $cond, $observacao;
+    public $nome, $endereco, $bairro, $celular, $e_civil, $nascimento, $batismo, $profissao, $group, $cond, $observacao, $foto;
 
     public $groups = [
         'Evangelização',
@@ -45,7 +45,10 @@ class CreateMembros extends Component
             'user_id' =>  Auth::user()->id,
             'nome' => $this->nome,
             'celular' => $this->celular,
-            'idade' => $this->idade,
+            'nascimento' => $this->nascimento,
+            'e_civil' => $this->e_civil,
+            'batismo' => $this->batismo,
+            'profissao' => $this->profissao,
             'endereco' => $this->endereco,
             'bairro' => $this->bairro,
             'condicao' => $this->cond,

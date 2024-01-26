@@ -19,14 +19,29 @@
         value="{{ old('bairro') }}" required autofocus autocomplete="bairro" />
 </div>
 <div class="mt-4">
+    <x-label for="e_civil" value="{{ __('Estado Civil') }}" />
+    <x-input wire:model='e_civil' id="e_civil" class="block mt-1 w-full" type="text" name="e_civil"
+        value="{{ old('e_civil') }}" required autofocus autocomplete="e_civil" />
+</div>
+<div class="mt-4">
+    <x-label for="profissao" value="{{ __('Profissão') }}" />
+    <x-input wire:model='profissao' id="profissao" class="block mt-1 w-full" type="text" name="profissao"
+        value="{{ old('profissao') }}" required autofocus autocomplete="profissao" />
+</div>
+<div class="mt-4">
     <x-label for="celular" value="{{ __('Celular') }}" />
     <x-input wire:model='celular' id="celular" class="block mt-1 w-full" type="text" name="celular"
         value="{{ old('celular') }}" required autofocus autocomplete="celular" />
 </div>
 <div class="mt-4">
-    <x-label for="idade" value="{{ __('Nascimento') }}" />
-    <x-input wire:model='idade' id="idade" class="block mt-1 w-full" type="date" name="idade"
-        value="{{ old('idade') }}" required autofocus autocomplete="idade" />
+    <x-label for="nascimento" value="{{ __('Nascimento') }}" />
+    <x-input wire:model='nascimento' id="nascimento" class="block mt-1 w-full" type="date" name="nascimento"
+        value="{{ old('nascimento') }}" required autofocus autocomplete="nascimento" />
+</div>
+<div class="mt-4">
+    <x-label for="batismo" value="{{ __('Data de Batismo') }}" />
+    <x-input wire:model='batismo' id="batismo" class="block mt-1 w-full" type="date" name="batismo"
+        value="{{ old('batismo') }}" required autofocus autocomplete="batismo" />
 </div>
 <div wire:ignore class="mt-4">
     <x-label for="grupos" value="{{ __('Grupos') }}" />
