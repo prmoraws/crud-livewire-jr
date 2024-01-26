@@ -60,6 +60,11 @@
                     {{ __('Salve') }}
                 </x-button>
             </div>
+            <div class="mt-1">
+                <x-emerald-button onclick="location.href='{{ route('membros') }}';" class="mt-1 w-full justify-center" type="button">
+                    {{ __('Não aterar foto') }}
+                </x-emerald-button>
+            </div>
 
         </div>
 

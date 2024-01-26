@@ -1,4 +1,11 @@
-<x-guest-layout>
+@section('title', 'Novo +')
+
+<div>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('Cadastrar') }}
+        </h2>
+    </x-slot>
     <x-authentication-card>
         <x-slot name="logo">
             {{-- <x-authentication-card-logo /> --}}
@@ -20,4 +27,4 @@
             </div>
         </form>
     </x-authentication-card>
-</x-guest-layout>
+</div>
